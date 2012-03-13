@@ -40,6 +40,9 @@ IF "%1" == "" (
 	echo расширенные политики...
 	call:log "gpresult /z" "%lp%\Policies\Extended.txt"
 	
+	echo сведения об общих ресурсах...
+	call:log "net share" "%lp%\Network\share.txt"
+	
 	echo сведения о пользователях...
 	net user > %lp%\Users\_UserList.txt
 	for /f "eol= tokens=*" %%i in (%lp%\Users\_UserList.txt) do @echo %%i >> %lp%\temp1.txt
